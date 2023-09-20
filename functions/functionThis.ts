@@ -17,3 +17,4 @@ let v1: i1 = {
 };
 
 v1.f1();
+// Note: 'this' usage can also be restricted by specifying type as 'void'
