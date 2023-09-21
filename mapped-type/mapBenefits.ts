@@ -19,3 +19,6 @@ function convertInterfaceToReadOnly(
 
 let mapBenefitVariable3 = convertInterfaceToReadOnly(mapBenefitVariable1);
 // mapBenefitVariable3.x = 5; Error since the return type of the mapping function is an interface with read-only components
+
+// Converting to read-only can be done using an inbuilt map function
+type readOnlyInterface<T> = { readonly [P in keyof T]: T[P] };
