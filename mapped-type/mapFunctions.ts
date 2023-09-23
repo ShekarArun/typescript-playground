@@ -64,3 +64,27 @@ const userInput: Record<keyof Animal, string> = {
   runningSpeed: "100",
 };
 console.log(receiveInputFromForm(userInput));
+
+// Extract is a map function which is used to extract types that are common across two types
+// Consider the following example where two custom types have common typed properties
+interface Vehicle {
+  type: string;
+  engine?: boolean;
+  moves: string; // Newly added type
+}
+interface Car {
+  type: string;
+  numberOfWheels: number;
+  moves: string; // Newly added type
+}
+
+type obj = Extract<keyof Vehicle, keyof Car>;
+function displayType(what: Record<obj, string>): void {
+  console.log(`Type: ${what.type}; Moves? ${what.moves}`);
+}
+const obj1: Vehicle = { type: "Sea", engine: true, moves: "yes" };
+const obj2: Car = { type: "Land", numberOfWheels: 5, moves: "yes" };
+displayType(obj1);
+displayType(obj2);
+
+// The above example allows the function to use any further string properties that are commonly added to Vehicle and Car types

@@ -35,3 +35,10 @@ var userInput = {
     runningSpeed: "100",
 };
 console.log(receiveInputFromForm(userInput));
+function displayType(what) {
+    console.log("Type: ".concat(what.type, "; Moves? ").concat(what.moves));
+}
+var obj1 = { type: "Sea", engine: true, moves: "yes" };
+var obj2 = { type: "Land", numberOfWheels: 5, moves: "yes" };
+displayType(obj1);
+displayType(obj2);
