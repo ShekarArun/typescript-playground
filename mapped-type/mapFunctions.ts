@@ -15,21 +15,28 @@ interface Animal {
   age: number;
   name: string;
 
-  maximumDeepness: number;
+  maximumDepth: number;
 
   numberOfLegs: number;
   canSwim: boolean;
   runningSpeed: number;
 }
 
-function buyAFish(
-  fishEntity: Pick<Animal, "age" | "name" | "maximumDeepness">
-) {
+function buyAFish(fishEntity: Pick<Animal, "age" | "name" | "maximumDepth">) {
   console.log(fishEntity);
 }
 
 buyAFish({
   age: 1,
   name: "Clown Fish",
-  maximumDeepness: 10,
+  maximumDepth: 10,
 });
+
+// Another way to create a new type is by Omit, which is the inverse of the Pick function
+function buyAFishThroughOmit(
+  fishEntity: Omit<Animal, "numberOfLegs" | "canSwim" | "runningSpeed">
+) {
+  console.log(fishEntity);
+}
+
+buyAFishThroughOmit({ age: 1, name: "Clown Fish Too", maximumDepth: 10 });
