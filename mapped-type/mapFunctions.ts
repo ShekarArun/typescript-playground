@@ -88,3 +88,29 @@ displayType(obj1);
 displayType(obj2);
 
 // The above example allows the function to use any further string properties that are commonly added to Vehicle and Car types
+
+// Exclude is another mapped function which can create a dynamic type by excluding the specified properties
+// Note how the types of the original properties can be carried forward by combining Pick with mapped functions
+interface MapI1 {
+  name: string;
+  gender: string;
+  sound: string;
+}
+interface MapI2 {
+  name: string;
+  gender: string;
+  nickname: string;
+}
+interface MapI3 {
+  name: string;
+  gender: boolean;
+  intelligenceScore: number;
+}
+interface noisyMapI1 {
+  sound: string;
+}
+
+type ExcludedMapI1 = Exclude<keyof MapI1, keyof noisyMapI1>;
+// Note the difference in types of properties for the below 2 types
+type PickedMapI1 = Pick<MapI2, ExcludedMapI1>;
+type PickedMapI2 = Pick<MapI3, ExcludedMapI1>;
