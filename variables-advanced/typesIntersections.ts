@@ -21,3 +21,31 @@ interface I3 {
 }
 type IntersectWithInterface = I1 & I2 & I3;
 const with3Interfaces: IntersectWithInterface = { x: "1", y: 1, z: true };
+
+// Discriminants can be used to differentiate similarly composed types
+interface Cat {
+  kind: "cat"; // Discriminant because shared with Dog
+  name: string;
+}
+
+interface Dog {
+  kind: "dog"; // Discriminant because shared with Dog
+  nickname: string;
+}
+
+function callMeBy(p: Cat | Dog): string {
+  if (p.kind === "cat") {
+    // In the IF, p is Cat
+    return p.name;
+  } else if (p.kind === "dog") {
+    // In the IF, p is Dog
+    return p.nickname;
+  }
+  return "unknown";
+}
+
+const cat1: Cat = { kind: "cat", name: "Hello Kitty" };
+const dog1: Dog = { kind: "dog", nickname: "Snoopy" };
+
+console.log(callMeBy(cat1));
+console.log(callMeBy(dog1));
