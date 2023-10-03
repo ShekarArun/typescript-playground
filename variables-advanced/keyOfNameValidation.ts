@@ -7,3 +7,11 @@ interface InterfaceWithMembers {
 }
 const members1: keyof InterfaceWithMembers = "title"; // Allows only values of 'id', 'title' or 'createdBy'
 // const members2: keyof InterfaceWithMembers = "abc"; // Not allowed
+
+// It can also simulate an enum by restricting type values
+type TypeToKeyOf = "north" | "south" | "east" | "west";
+function fKeyOfParameter(direction: TypeToKeyOf) {
+  console.log(direction);
+}
+// fKeyOfParameter("Hello"); // Doesn't compile
+fKeyOfParameter("north");

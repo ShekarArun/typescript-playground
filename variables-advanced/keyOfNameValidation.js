@@ -1,2 +1,6 @@
-var members1 = "id";
-console.log(members1);
+var members1 = "title"; // Allows only values of 'id', 'title' or 'createdBy'
+function fKeyOfParameter(direction) {
+    console.log(direction);
+}
+// fKeyOfParameter("Hello"); // Doesn't compile
+fKeyOfParameter("north");
