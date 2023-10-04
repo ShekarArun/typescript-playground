@@ -29,3 +29,23 @@ function printIfNotUndefined<T>(p: NotUndefined<T>) {
 
 printIfNotUndefined(x1);
 // printIfNotUndefined(x2); // Not allowed as undefined type cannot be passed to function
+
+// Nested conditional types are also possible
+type RemoveBoolean<T> = {
+  [Key in keyof T]: boolean extends T[Key] ? never : Key;
+}[keyof T];
+
+interface Inf1 {
+  m1: string;
+  m2: boolean;
+  m3: number;
+}
+
+type NoBoolean1 = RemoveBoolean<Inf1>; // "m1" | "m3"
+
+// To extend this, we have to loop over keys and create a new type
+type RemoveBooleanWithMembers<P> = {
+  [Key in RemoveBoolean<P>]: P[Key];
+};
+
+type NoBoolean2 = RemoveBooleanWithMembers<Inf1>; // {m1: string, m3: number}

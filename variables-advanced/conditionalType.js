@@ -9,4 +9,3 @@ function printIfNotUndefined(p) {
     console.log(p);
 }
 printIfNotUndefined(x1);
-printIfNotUndefined(x2);
