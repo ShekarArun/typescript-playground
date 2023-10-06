@@ -12,9 +12,9 @@ function unionWithDiscriminant(p) {
             break;
     }
 }
-var constDisc1 = { discriminant: "Disc1", m0: 97 };
-var constDisc2 = { discriminant: "Disc2", m1: "Hello" };
-var constDisc3 = { discriminant: "Disc3", m2: true };
+const constDisc1 = { discriminant: "Disc1", m0: 97 };
+const constDisc2 = { discriminant: "Disc2", m1: "Hello" };
+const constDisc3 = { discriminant: "Disc3", m2: true };
 unionWithDiscriminant(constDisc1);
 unionWithDiscriminant(constDisc2);
 unionWithDiscriminant(constDisc3);

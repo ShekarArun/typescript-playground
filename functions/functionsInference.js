@@ -2,16 +2,16 @@
 function f1(p) {
     return p * 2;
 }
-var f2 = function (p) {
+const f2 = function (p) {
     return p * 2;
 };
-var f3 = function (p) {
+const f3 = (p) => {
     return p * 2;
 };
-var f4 = function (p) { return p * 2; };
-var f5 = function (p) { return p * 2; };
-var differingParamsInterface = {
-    func1: function (p2) { return p2 * 2; },
+const f4 = (p) => p * 2;
+const f5 = (p) => p * 2;
+let differingParamsInterface = {
+    func1: (p2) => p2 * 2,
 };
 // Functions can have optional parameters
 // This can be done either by defining the type to be undefined or to use a question mark before the colon

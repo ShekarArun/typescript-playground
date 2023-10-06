@@ -1,4 +1,4 @@
-var members1 = "title"; // Allows only values of 'id', 'title' or 'createdBy'
+const members1 = "title"; // Allows only values of 'id', 'title' or 'createdBy'
 function fKeyOfParameter(direction) {
     console.log(direction);
 }

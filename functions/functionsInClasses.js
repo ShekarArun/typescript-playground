@@ -5,37 +5,32 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 };
 var _c3_instances, _c3_privateFunction;
 // Functions in classes are defined using the visibility mode and without the 'function' keyword
-var c1 = /** @class */ (function () {
-    function c1() {
-    }
-    c1.prototype.f1 = function () { };
-    c1.prototype.f2 = function () { };
-    c1.prototype.f3 = function () { };
-    return c1;
-}());
+class c1 {
+    f1() { }
+    f2() { }
+    f3() { }
+}
 // Private methods cannot be accessed outside the class
-var c2 = /** @class */ (function () {
-    function c2() {
+class c2 {
+    constructor() {
         this.privateFunction();
     }
-    c2.prototype.privateFunction = function () {
+    privateFunction() {
         console.log("Private function invoked");
-    };
-    return c2;
-}());
-var o1 = new c2();
+    }
+}
+const o1 = new c2();
 // o1.privateFunction(); Error as the function is private and cannot be accessed outside the class
 // Private properties as defined above are still transpiled to JS in a manner that they are accessible outside the class
 // The 'Private Field' operator '#' was introduced in JS to overcome this, and is also available in TS
-var c3 = /** @class */ (function () {
-    function c3() {
+class c3 {
+    constructor() {
         _c3_instances.add(this);
         __classPrivateFieldGet(this, _c3_instances, "m", _c3_privateFunction).call(this);
     }
-    return c3;
-}());
+}
 _c3_instances = new WeakSet(), _c3_privateFunction = function _c3_privateFunction() {
     console.log("Newer private function invoked!");
 };
-var o2 = new c3();
+const o2 = new c3();
 // o2.#privateFunction() Again, error because private property is not accessible externally

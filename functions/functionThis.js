@@ -1,4 +1,4 @@
-var v1 = {
+let v1 = {
     m1: ["Red", "Blue", "Green"],
     m2: [1, 2, 3],
     f1: function () {
@@ -8,3 +8,4 @@ var v1 = {
     },
 };
 v1.f1();
+// Note: 'this' usage can also be restricted by specifying type as 'void'

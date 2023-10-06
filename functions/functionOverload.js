@@ -1,5 +1,4 @@
-function functionWithOverload(param1, param2, param3) {
-    if (param2 === void 0) { param2 = "default"; }
+function functionWithOverload(param1, param2 = "default", param3) {
     if (param3 === undefined) {
         return "string";
     }
@@ -25,7 +24,7 @@ function createSuperHero(name) {
         };
     }
 }
-var hero1 = createSuperHero("batman");
-console.log("Batman has running speed: ".concat(hero1.runningSpeed)); // Note the IntelliSense when accessing properties here
-var hero2 = createSuperHero("superman");
-console.log("Superman can fly at a height of: ".concat(hero2.flyingHeight));
+const hero1 = createSuperHero("batman");
+console.log(`Batman has running speed: ${hero1.runningSpeed}`); // Note the IntelliSense when accessing properties here
+const hero2 = createSuperHero("superman");
+console.log(`Superman can fly at a height of: ${hero2.flyingHeight}`);

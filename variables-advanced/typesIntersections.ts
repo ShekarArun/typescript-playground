@@ -23,7 +23,7 @@ type IntersectWithInterface = I1 & I2 & I3;
 const with3Interfaces: IntersectWithInterface = { x: "1", y: 1, z: true };
 
 // Discriminants can be used to differentiate similarly composed types
-interface Cat {
+interface Cat2 {
   kind: "cat"; // Discriminant because shared with Dog
   name: string;
 }
@@ -33,7 +33,7 @@ interface Dog {
   nickname: string;
 }
 
-function callMeBy(p: Cat | Dog): string {
+function callMeBy(p: Cat2 | Dog): string {
   if (p.kind === "cat") {
     // In the IF, p is Cat
     return p.name;
@@ -44,8 +44,8 @@ function callMeBy(p: Cat | Dog): string {
   return "unknown";
 }
 
-const cat1: Cat = { kind: "cat", name: "Hello Kitty" };
+const cat3: Cat2 = { kind: "cat", name: "Hello Kitty" };
 const dog1: Dog = { kind: "dog", nickname: "Snoopy" };
 
-console.log(callMeBy(cat1));
+console.log(callMeBy(cat3));
 console.log(callMeBy(dog1));

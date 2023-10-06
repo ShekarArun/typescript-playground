@@ -9,5 +9,5 @@ function genericInference2(param) {
     return param.length;
 }
 console.log(genericInference2("New string"));
-var newUUID = "123-456"; // Although just a string, defining a separate type also helps understand the data present in this variable
+let newUUID = "123-456"; // Although just a string, defining a separate type also helps understand the data present in this variable
 console.log(genericInference2(newUUID));

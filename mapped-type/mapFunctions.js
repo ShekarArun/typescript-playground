@@ -1,5 +1,5 @@
-var cat1 = { age: 3, weight: 2 };
-var cat2 = { age: 1, weight: 1.5 };
+const cat1 = { age: 3, weight: 2 };
+const cat2 = { age: 1, weight: 1.5 };
 function buyAFish(fishEntity) {
     console.log(fishEntity);
 }
@@ -16,7 +16,7 @@ buyAFishThroughOmit({ age: 1, name: "Clown Fish Too", maximumDepth: 10 });
 // Record<> is a map function which accepts a union of required parameters, and then creates a new type as per the specified type in the second parameter of the map function
 // It is very useful in situations such as when user input is obtained from a web form or such and needs to be converted to a strongly typed object
 function receiveInputFromForm(inputData) {
-    var stronglyTypedObject = {
+    const stronglyTypedObject = {
         age: Number(inputData.age),
         name: inputData.name,
         maximumDepth: Number(inputData.maximumDepth),
@@ -26,7 +26,7 @@ function receiveInputFromForm(inputData) {
     };
     return stronglyTypedObject;
 }
-var userInput = {
+const userInput = {
     age: "1",
     name: "Zebra",
     maximumDepth: "4",
@@ -36,9 +36,9 @@ var userInput = {
 };
 console.log(receiveInputFromForm(userInput));
 function displayType(what) {
-    console.log("Type: ".concat(what.type, "; Moves? ").concat(what.moves));
+    console.log(`Type: ${what.type}; Moves? ${what.moves}`);
 }
-var obj1 = { type: "Sea", engine: true, moves: "yes" };
-var obj2 = { type: "Land", numberOfWheels: 5, moves: "yes" };
+const obj1 = { type: "Sea", engine: true, moves: "yes" };
+const obj2 = { type: "Land", numberOfWheels: 5, moves: "yes" };
 displayType(obj1);
 displayType(obj2);
