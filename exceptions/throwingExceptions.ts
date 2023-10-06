@@ -25,3 +25,11 @@ class customError1 extends Error {
   }
 }
 throw new customError1("ErrorData", "ErrorMessage");
+
+// Error types have to be defined when raised explicitly, they cannot be assigned to the normally expected base type
+function withReturn(p1: number): string | Error {
+  if (Math.random()) {
+    return new Error("My error message");
+  }
+  return "String as expected when all good";
+}
