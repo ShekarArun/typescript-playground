@@ -35,3 +35,41 @@ const errorHandling2: ErrorCallBack = (message: string): void => {
 };
 
 execute(myAlgorithm, errorHandling2);
+
+// Type aliases are useful for recursive structures
+type NodeTypeAlias = {
+  name: string;
+  child?: NodeTypeAlias;
+};
+let recursiveTypeAlias: NodeTypeAlias = {
+  name: "Node1",
+  child: {
+    name: "Node2",
+    child: {
+      name: "Node3",
+    },
+  },
+};
+
+// Types can also intersect with other types, which is similar to extending multiple interfaces
+type Family = {
+  name: string;
+};
+type Individual = {
+  firstName: string;
+  lastName: string;
+};
+type Child<T> = {
+  child: T;
+};
+type FamilyGroup = Family & Individual & Child<Individual>;
+let familyGroup1: FamilyGroup = {
+  name: "Family1",
+  firstName: "Parent1",
+  lastName: "Lastname",
+  child: {
+    firstName: "ChildFirst",
+    lastName: "ChildLast",
+  },
+};
+console.log(familyGroup1);
