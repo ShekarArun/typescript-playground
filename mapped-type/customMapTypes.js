@@ -6,5 +6,8 @@ const conditionalTypeConst1 = {
     name: "John",
     dateCreated: new Date(),
 };
-const conditionalTypeConst2 = Object.assign(Object.assign({}, conditionalTypeConst1), { dateModified: new Date() });
+const conditionalTypeConst2 = {
+    ...conditionalTypeConst1,
+    dateModified: new Date(),
+};
 console.log(conditionalTypeConst2);
